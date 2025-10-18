@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Дневник</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="header__brand">
+                <div class="header__logo"></div>
+                <h1 class="header__name">Гатилова Евгения</h1>
+            </div>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <section class="diary">
+                <h2 class="diary__title">Мой учебный прогресс</h2>
+                
+                <div class="progress-items" id="progressItems">
+
+                    <!-- Записи будут добавляться сюда через JavaScript -->
+                    <div class="progress-item completed">
+                        <span class="progress-date">15.12.2024</span>
+                        <span class="progress-text">Верстка макета сайта ✓</span>
+                        <div class="entry-actions">
+                            <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="progress-item completed">
+                        <span class="progress-date">10.12.2024</span>
+                        <span class="progress-text">JavaScript основы ✓</span>
+                        <div class="entry-actions">
+                            <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="progress-item in-progress">
+                        <span class="progress-date">05.12.2024</span>
+                        <span class="progress-text">Работа с формами in progress</span>
+                        <div class="entry-actions">
+                            <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="progress-item in-progress">
+                        <span class="progress-date">01.12.2024</span>
+                        <span class="progress-text">Адаптивный дизайн in progress</span>
+                        <div class="entry-actions">
+                            <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="current-courses">
+                    <h3 class="current-courses__title">Текущие курсы</h3>
+                    <div class="course-progress">
+                        <span class="course-name">Веб-разработка</span>
+                        <div class="course-bar">
+                            <div class="course-level" style="width: 90%">90%</div>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-name">JavaScript</span>
+                        <div class="course-bar">
+                            <div class="course-level" style="width: 70%">70%</div>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-name">React</span>
+                        <div class="course-bar">
+                            <div class="course-level" style="width: 50%">50%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="add-entry-btn" onclick="openAddEntryModal()">Добавить запись</button>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Контакты</p>
+        </footer>
+
+        <!-- Модальное окно для добавления записи -->
+        <dialog id="addEntryModal">
+            <div class="modal-header">
+                <h2>Добавить запись в дневник</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="addEntryForm">
+                    <div class="form-group">
+                        <label for="entryDate">Дата (день.месяц.год)</label>
+                        <div class="date-inputs">
+                            <input type="number" id="day" class="date-input" min="1" max="31" placeholder="День" required>
+                            <div class="date-separator">.</div>
+                            <input type="number" id="month" class="date-input" min="1" max="12" placeholder="Месяц" required>
+                            <div class="date-separator">.</div>
+                            <input type="number" id="year" class="date-input" min="2006" max="2200" placeholder="Год" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="entryText">Текст записи</label>
+                        <textarea id="entryText" name="text" required placeholder="Опишите, что вы изучили..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="entryStatus">Статус</label>
+                        <select id="entryStatus" name="status" required>
+                            <option value="completed">Выполнено</option>
+                            <option value="in-progress">В процессе</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeAddEntryModal()">Отмена</button>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
+
+    <script>
+        // Функции для работы с модальным окном
+        function openAddEntryModal() {
+            // Устанавливаем текущую дату по умолчанию
+            const today = new Date();
+            document.getElementById('day').value = today.getDate();
+            document.getElementById('month').value = today.getMonth() + 1;
+            document.getElementById('year').value = today.getFullYear();
+            
+            document.getElementById('addEntryModal').showModal();
+        }
+
+        function closeAddEntryModal() {
+            document.getElementById('addEntryModal').close();
+            document.getElementById('addEntryForm').reset();
+        }
+
+        // Обработчик отправки формы
+        document.getElementById('addEntryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем значения даты
+            const day = document.getElementById('day').value.padStart(2, '0');
+            const month = document.getElementById('month').value.padStart(2, '0');
+            const year = document.getElementById('year').value;
+            
+            const date = `${day}.${month}.${year}`;
+            const text = document.getElementById('entryText').value;
+            const status = document.getElementById('entryStatus').value;
+            
+            // Валидация даты
+            if (!isValidDate(day, month, year)) {
+                alert('Пожалуйста, введите корректную дату');
+                return;
+            }
+            
+            addNewEntry(date, text, status);
+            closeAddEntryModal();
+        });
+
+        // Функция валидации даты
+        function isValidDate(day, month, year) {
+            const dayNum = parseInt(day);
+            const monthNum = parseInt(month);
+            const yearNum = parseInt(year);
+            
+            // Проверяем базовые ограничения
+            if (dayNum < 1 || dayNum > 31) return false;
+            if (monthNum < 1 || monthNum > 12) return false;
+            if (yearNum < 2006 || yearNum > 2200) return false;
+            
+            // Проверяем корректность даты (например, 30 февраля)
+            const date = new Date(yearNum, monthNum - 1, dayNum);
+            return date.getDate() === dayNum && 
+                   date.getMonth() === monthNum - 1 && 
+                   date.getFullYear() === yearNum;
+        }
+
+        // Функция добавления новой записи
+        function addNewEntry(date, text, status) {
+            const progressItems = document.getElementById('progressItems');
+            
+            const newEntry = document.createElement('div');
+            newEntry.className = `progress-item ${status}`;
+            
+            const statusSymbol = status === 'completed' ? '✓' : 'in progress';
+            
+            newEntry.innerHTML = `
+                <span class="progress-date">${date}</span>
+                <span class="progress-text">${text} ${statusSymbol}</span>
+                <div class="entry-actions">
+                    <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
+                </div>
+            `;
+            
+            // Добавляем новую запись в начало списка
+            progressItems.insertBefore(newEntry, progressItems.firstChild);
+        }
+
+        // Функция удаления записи
+        function deleteEntry(button) {
+            const entry = button.closest('.progress-item');
+            if (confirm('Вы уверены, что хотите удалить эту запись?')) {
+                entry.remove();
+            }
+        }
+
+        // Закрытие модального окна по клику на фон
+        document.getElementById('addEntryModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeAddEntryModal();
+            }
+        });
+
+        // Автоматическое перемещение между полями даты
+        document.getElementById('day').addEventListener('input', function(e) {
+            if (this.value.length === 2) {
+                document.getElementById('month').focus();
+            }
+        });
+
+        document.getElementById('month').addEventListener('input', function(e) {
+            if (this.value.length === 2) {
+                document.getElementById('year').focus();
+            }
+        });
+    </script>
+</body>
+</html>

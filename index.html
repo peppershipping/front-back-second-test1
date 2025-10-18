@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Портфолио - Главная</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="header__brand">
+                <div class="header__logo"></div>
+                <h1 class="header__name">Гатилова Евгения</h1>
+            </div>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <!-- Приветственная секция -->
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="hero__photo">
+                        <img src="images/photo.jpg" alt="Фото студента">
+                    </div>
+                    <div class="hero__text">
+                        <h2 class="hero__title">Привет! Я студент РТУ МИРЭА</h2>
+                        <p class="hero__subtitle">Факультет Информационные системы и технологии группы ЭФБО-11-24</p>
+                        <p class="hero__description">Увлекаюсь веб-разработкой</p>
+                        <button class="hero__button">Скачать резюме</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Навыки -->
+            <section class="skills-section">
+                <h2 class="skills-section__title">Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 40%">40%</div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 20%">20%</div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Bootstrap</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 10%">10%</div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C#</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 30%">30%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Лучшие проекты -->
+
+            <section class="class=" featured-projects>
+                <div class="featured-projects__title">Лучшие проекты</div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h5 class="project-placeholder">Личный сайт</h5>
+                        <p>Сайт о моих успехах в процессе обучения и прочих приколюхах хахахахаха.</p>
+                        <img src="images/project1.jpg" class="card-img" alt="Проект 1">
+                    </div>
+                    <div class="project-card">
+                        <h5 class="project-placeholder">Todo-приложение</h5>
+                        <p>небольшая таблица данных, написанная вручную, с целью оптимизировать время ветеринарки.</p>
+                        <img src="images/project2.jpg" class="card-img" alt="Проект 2">
+                    </div>
+                    <div class="project-card">
+                        <h5 class="project-placeholder">Интернет магазин</h5>
+                        <p>Магазин и новости о котятках моего района, а также о возможности их
+                            забрать.</p>
+                        <img src="images/project3.jpg" class="card-img" alt="Проект 3">
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section class="featured-projects">
+                <h2 class="featured-projects__title">Лучшие проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-placeholder">Мое портфолио</div>
+                        <div>
+                            <img src="images/project1.jpg" class="card-img-top" alt="Проект 1">
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-placeholder">П2</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-placeholder">П3</div>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Контакты</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Портфолио - Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+    <div class="page">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="header__brand">
+                <div class="header__logo"></div>
+                <h1 class="header__name">Гатилова Евгения</h1>
+            </div>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+                        <section class="projects-page">
+                <h2 class="projects-page__title">Мои проекты</h2>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="html">HTML</button>
+                    <button class="filter-btn" data-filter="js">JS</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                </div>
+                
+                <div class="projects-grid-large" id="projectsGrid">
+                    <div class="project-card-large" data-category="html">
+                        <h3 class="project-card-large__title">Личный сайт</h3>
+                        <p class="project-card-large__tech">HTML, CSS</p>
+                    </div>
+                    <div class="project-card-large" data-category="js">
+                        <h3 class="project-card-large__title">Todo-приложение</h3>
+                        <p class="project-card-large__tech">JavaScript</p>
+                    </div>
+                    <div class="project-card-large" data-category="react">
+                        <h3 class="project-card-large__title">Интернет-магазин</h3>
+                        <p class="project-card-large__tech">React</p>
+                    </div>
+                    <div class="project-card-large" data-category="html">
+                        <h3 class="project-card-large__title">Портфолио</h3>
+                        <p class="project-card-large__tech">Bootstrap</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Контакты</p>
+        </footer>
+    </div>
+
+    <script src="../scripts/filter.js"></script>
+    
+</body>
+</html>
