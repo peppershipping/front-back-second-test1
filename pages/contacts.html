@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация - Гатилова Евгения" />
     <title>Портфолио - Контакты</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
@@ -13,25 +14,31 @@
         <!-- Шапка -->
         <header class="header">
             <div class="header__brand">
-                <div class="header__logo"></div>
+                <div class="header__logo" title="Логотип портфолио">ГЕ</div>
                 <h1 class="header__name">Гатилова Евгения</h1>
             </div>
         </header>
 
+        <button class="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <!-- Навигация -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="../index.html" title="Главная страница">Главная</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="projects.html">Проекты</a>
+                    <a class="nav__link" href="projects.html" title="Мои проекты">Проекты</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="diary.html">Дневник</a>
+                    <a class="nav__link" href="diary.html" title="Учебный дневник">Дневник</a>
                 </li>
                 <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="contacts.html">Контакты</a>
+                    <a class="nav__link" href="contacts.html" title="Мои контакты">Контакты</a>
                 </li>
             </ul>
         </nav>
@@ -39,46 +46,52 @@
         <main class="main">
             <section class="contacts">
                 <h2 class="contacts__title">Свяжитесь со мной</h2>
-                
-                <form class="contact-form" id="contactForm">
+
+                <form class="contact-form" id="contactForm" aria-label="Форма обратной связи">
                     <div class="form-group">
                         <label for="name">Имя:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required aria-required="true" title="Введите ваше имя">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required aria-required="true"
+                            title="Введите корректный email адрес">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Сообщение:</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" required aria-required="true"
+                            title="Введите ваше сообщение"></textarea>
                     </div>
-                    
-                    <button type="submit" class="submit-btn">Отправить сообщение</button>
+
+                    <button type="submit" class="submit-btn" title="Отправить форму обратной связи">Отправить
+                        сообщение</button>
                 </form>
 
                 <div class="contact-info">
                     <h3>Контакты:</h3>
-                    <p>✉️ gatilova.e.a@edu.mirea.ru</p>
-                    <p>📱 GitHub: peppershipping</p>
-                    <p>📍 Москва, Рашка</p>
+                    <p>✉️ <a href="mailto:gatilova.e.a@edu.mirea.ru"
+                            title="Отправить письмо на email">gatilova.e.a@edu.mirea.ru</a></p>
+                    <p>📱 GitHub: <a href="https://github.com/peppershipping" title="Открыть профиль на GitHub"
+                            target="_blank" rel="noopener noreferrer">peppershipping</a></p>
+                    <p>📍 Москва, Россия</p>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">© 2025 Контакты</p>
+            <p class="footer__text">© 2025 Портфолио Гатилова Евгения</p>
         </footer>
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Сообщение отправлено!');
+            alert('Спасибо! Ваше сообщение отправлено.');
             this.reset();
         });
     </script>
 </body>
+
 </html>

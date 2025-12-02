@@ -18,6 +18,12 @@
             </div>
         </header>
 
+        <button class="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <!-- Навигация -->
         <nav class="nav">
             <ul class="nav__list">
@@ -39,7 +45,7 @@
         <main class="main">
             <section class="diary">
                 <h2 class="diary__title">Мой учебный прогресс</h2>
-                
+
                 <div class="progress-items" id="progressItems">
 
                     <!-- Записи будут добавляться сюда через JavaScript -->
@@ -114,17 +120,21 @@
                     <div class="form-group">
                         <label for="entryDate">Дата (день.месяц.год)</label>
                         <div class="date-inputs">
-                            <input type="number" id="day" class="date-input" min="1" max="31" placeholder="День" required>
+                            <input type="number" id="day" class="date-input" min="1" max="31" placeholder="День"
+                                required>
                             <div class="date-separator">.</div>
-                            <input type="number" id="month" class="date-input" min="1" max="12" placeholder="Месяц" required>
+                            <input type="number" id="month" class="date-input" min="1" max="12" placeholder="Месяц"
+                                required>
                             <div class="date-separator">.</div>
-                            <input type="number" id="year" class="date-input" min="2006" max="2200" placeholder="Год" required>
+                            <input type="number" id="year" class="date-input" min="2006" max="2200" placeholder="Год"
+                                required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="entryText">Текст записи</label>
-                        <textarea id="entryText" name="text" required placeholder="Опишите, что вы изучили..."></textarea>
+                        <textarea id="entryText" name="text" required
+                            placeholder="Опишите, что вы изучили..."></textarea>
                     </div>
 
                     <div class="form-group">
@@ -152,7 +162,7 @@
             document.getElementById('day').value = today.getDate();
             document.getElementById('month').value = today.getMonth() + 1;
             document.getElementById('year').value = today.getFullYear();
-            
+
             document.getElementById('addEntryModal').showModal();
         }
 
@@ -162,24 +172,24 @@
         }
 
         // Обработчик отправки формы
-        document.getElementById('addEntryForm').addEventListener('submit', function(e) {
+        document.getElementById('addEntryForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Получаем значения даты
             const day = document.getElementById('day').value.padStart(2, '0');
             const month = document.getElementById('month').value.padStart(2, '0');
             const year = document.getElementById('year').value;
-            
+
             const date = `${day}.${month}.${year}`;
             const text = document.getElementById('entryText').value;
             const status = document.getElementById('entryStatus').value;
-            
+
             // Валидация даты
             if (!isValidDate(day, month, year)) {
                 alert('Пожалуйста, введите корректную дату');
                 return;
             }
-            
+
             addNewEntry(date, text, status);
             closeAddEntryModal();
         });
@@ -189,28 +199,28 @@
             const dayNum = parseInt(day);
             const monthNum = parseInt(month);
             const yearNum = parseInt(year);
-            
+
             // Проверяем базовые ограничения
             if (dayNum < 1 || dayNum > 31) return false;
             if (monthNum < 1 || monthNum > 12) return false;
             if (yearNum < 2006 || yearNum > 2200) return false;
-            
+
             // Проверяем корректность даты (например, 30 февраля)
             const date = new Date(yearNum, monthNum - 1, dayNum);
-            return date.getDate() === dayNum && 
-                   date.getMonth() === monthNum - 1 && 
-                   date.getFullYear() === yearNum;
+            return date.getDate() === dayNum &&
+                date.getMonth() === monthNum - 1 &&
+                date.getFullYear() === yearNum;
         }
 
         // Функция добавления новой записи
         function addNewEntry(date, text, status) {
             const progressItems = document.getElementById('progressItems');
-            
+
             const newEntry = document.createElement('div');
             newEntry.className = `progress-item ${status}`;
-            
+
             const statusSymbol = status === 'completed' ? '✓' : 'in progress';
-            
+
             newEntry.innerHTML = `
                 <span class="progress-date">${date}</span>
                 <span class="progress-text">${text} ${statusSymbol}</span>
@@ -218,7 +228,7 @@
                     <button class="delete-btn" onclick="deleteEntry(this)">Удалить</button>
                 </div>
             `;
-            
+
             // Добавляем новую запись в начало списка
             progressItems.insertBefore(newEntry, progressItems.firstChild);
         }
@@ -232,24 +242,25 @@
         }
 
         // Закрытие модального окна по клику на фон
-        document.getElementById('addEntryModal').addEventListener('click', function(event) {
+        document.getElementById('addEntryModal').addEventListener('click', function (event) {
             if (event.target === this) {
                 closeAddEntryModal();
             }
         });
 
         // Автоматическое перемещение между полями даты
-        document.getElementById('day').addEventListener('input', function(e) {
+        document.getElementById('day').addEventListener('input', function (e) {
             if (this.value.length === 2) {
                 document.getElementById('month').focus();
             }
         });
 
-        document.getElementById('month').addEventListener('input', function(e) {
+        document.getElementById('month').addEventListener('input', function (e) {
             if (this.value.length === 2) {
                 document.getElementById('year').focus();
             }
         });
     </script>
 </body>
+
 </html>

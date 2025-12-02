@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Портфолио студента РТУ МИРЭА - веб-разработчик Гатилова Евгения" />
     <title>Портфолио - Главная</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
@@ -14,25 +15,31 @@
         <!-- Шапка -->
         <header class="header">
             <div class="header__brand">
-                <div class="header__logo"></div>
+                <div class="header__logo" title="Логотип портфолио">ГЕ</div>
                 <h1 class="header__name">Гатилова Евгения</h1>
             </div>
         </header>
 
+        <button class="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <!-- Навигация -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="index.html">Главная</a>
+                    <a class="nav__link" href="index.html" title="Главная страница">Главная</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="pages/projects.html">Проекты</a>
+                    <a class="nav__link" href="pages/projects.html" title="Мои проекты">Проекты</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="pages/diary.html">Дневник</a>
+                    <a class="nav__link" href="pages/diary.html" title="Учебный дневник">Дневник</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                    <a class="nav__link" href="pages/contacts.html" title="Мои контакты">Контакты</a>
                 </li>
             </ul>
         </nav>
@@ -42,42 +49,48 @@
             <section class="hero">
                 <div class="hero__content">
                     <div class="hero__photo">
-                        <img src="images/photo.jpg" alt="Фото студента">
+                        <img src="images/photo.jpg" alt="Фото студентки Гатиловой Евгении">
                     </div>
                     <div class="hero__text">
                         <h2 class="hero__title">Привет! Я студент РТУ МИРЭА</h2>
                         <p class="hero__subtitle">Факультет Информационные системы и технологии группы ЭФБО-11-24</p>
                         <p class="hero__description">Увлекаюсь веб-разработкой</p>
-                        <button class="hero__button">Скачать резюме</button>
+                        <a href="assets/resume.pdf">
+                        <button class="hero__button" title="Скачать файл резюме в PDF формате">Скачать резюме</button>
+                        </a>
                     </div>
                 </div>
             </section>
 
             <!-- Навыки -->
-            <section class="skills-section">
-                <h2 class="skills-section__title">Мои навыки</h2>
+            <section class="skills-section" aria-labelledby="skills-title">
+                <h2 class="skills-section__title" id="skills-title">Мои навыки</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <span class="skill-name">HTML/CSS</span>
-                        <div class="skill-bar">
+                        <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                            aria-valuemax="100">
                             <div class="skill-level" style="width: 40%">40%</div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <span class="skill-name">JavaScript</span>
-                        <div class="skill-bar">
+                        <div class="skill-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                            aria-valuemax="100">
                             <div class="skill-level" style="width: 20%">20%</div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <span class="skill-name">Bootstrap</span>
-                        <div class="skill-bar">
+                        <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="100">
                             <div class="skill-level" style="width: 10%">10%</div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <span class="skill-name">C#</span>
-                        <div class="skill-bar">
+                        <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                            aria-valuemax="100">
                             <div class="skill-level" style="width: 30%">30%</div>
                         </div>
                     </div>
@@ -85,52 +98,45 @@
             </section>
 
             <!-- Лучшие проекты -->
-
-            <section class="class=" featured-projects>
-                <div class="featured-projects__title">Лучшие проекты</div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h5 class="project-placeholder">Личный сайт</h5>
-                        <p>Сайт о моих успехах в процессе обучения и прочих приколюхах хахахахаха.</p>
-                        <img src="images/project1.jpg" class="card-img" alt="Проект 1">
-                    </div>
-                    <div class="project-card">
-                        <h5 class="project-placeholder">Todo-приложение</h5>
-                        <p>небольшая таблица данных, написанная вручную, с целью оптимизировать время ветеринарки.</p>
-                        <img src="images/project2.jpg" class="card-img" alt="Проект 2">
-                    </div>
-                    <div class="project-card">
-                        <h5 class="project-placeholder">Интернет магазин</h5>
-                        <p>Магазин и новости о котятках моего района, а также о возможности их
-                            забрать.</p>
-                        <img src="images/project3.jpg" class="card-img" alt="Проект 3">
-                    </div>
-                </div>
-            </section>
-
-            <!-- <section class="featured-projects">
+            <section class="featured-projects">
                 <h2 class="featured-projects__title">Лучшие проекты</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-placeholder">Мое портфолио</div>
-                        <div>
-                            <img src="images/project1.jpg" class="card-img-top" alt="Проект 1">
-                        </div>
+                        <h5 class="project-placeholder">Личный сайт</h5>
+                        <p>Сайт о моих успехах в процессе обучения и прочих достижениях.</p>
+                        <img src="images/project1.jpg" class="card-img" alt="Скриншот проекта: Личный сайт портфолио">
                     </div>
                     <div class="project-card">
-                        <div class="project-placeholder">П2</div>
+                        <h5 class="project-placeholder">Todo-приложение</h5>
+                        <p>Небольшая таблица данных, написанная вручную, с целью оптимизировать время работы.</p>
+                        <img src="images/project2.jpg" class="card-img"
+                            alt="Скриншот проекта: Todo-приложение для управления задачами">
                     </div>
                     <div class="project-card">
-                        <div class="project-placeholder">П3</div>
+                        <h5 class="project-placeholder">Интернет магазин</h5>
+                        <p>Магазин и новости о котятках моего района, а также о возможности их забрать.</p>
+                        <img src="images/project3.jpg" class="card-img" alt="Скриншот проекта: Интернет-магазин котят">
                     </div>
                 </div>
-            </section> -->
+            </section>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">© 2025 Контакты</p>
+            <p class="footer__text">© 2025 Портфолио Гатилова Евгения</p>
         </footer>
     </div>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav');
+
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('is-open');
+                nav.classList.toggle('is-open');
+            });
+        }
+    </script>
+
 </body>
 
 </html>

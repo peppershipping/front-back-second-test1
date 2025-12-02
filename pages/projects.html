@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Проекты студента веб-разработки - Гатилова Евгения" />
     <title>Портфолио - Проекты</title>
     <link rel="stylesheet" href="../styles/styles.css" />
 </head>
@@ -13,40 +14,46 @@
         <!-- Шапка -->
         <header class="header">
             <div class="header__brand">
-                <div class="header__logo"></div>
+                <div class="header__logo" title="Логотип портфолио">ГЕ</div>
                 <h1 class="header__name">Гатилова Евгения</h1>
             </div>
         </header>
 
+        <button class="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <!-- Навигация -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="../index.html" title="Главная страница">Главная</a>
                 </li>
                 <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="projects.html">Проекты</a>
+                    <a class="nav__link" href="projects.html" title="Мои проекты">Проекты</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="diary.html">Дневник</a>
+                    <a class="nav__link" href="diary.html" title="Учебный дневник">Дневник</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="contacts.html">Контакты</a>
+                    <a class="nav__link" href="contacts.html" title="Мои контакты">Контакты</a>
                 </li>
             </ul>
         </nav>
 
         <main class="main">
-                        <section class="projects-page">
+            <section class="projects-page">
                 <h2 class="projects-page__title">Мои проекты</h2>
-                
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">Все</button>
-                    <button class="filter-btn" data-filter="html">HTML</button>
-                    <button class="filter-btn" data-filter="js">JS</button>
-                    <button class="filter-btn" data-filter="react">React</button>
+
+                <div class="projects-filter" role="group" aria-label="Фильтр по технологиям">
+                    <button class="filter-btn active" data-filter="all" title="Показать все проекты">Все</button>
+                    <button class="filter-btn" data-filter="html" title="Фильтр по HTML проектам">HTML</button>
+                    <button class="filter-btn" data-filter="js" title="Фильтр по JavaScript проектам">JS</button>
+                    <button class="filter-btn" data-filter="react" title="Фильтр по React проектам">React</button>
                 </div>
-                
+
                 <div class="projects-grid-large" id="projectsGrid">
                     <div class="project-card-large" data-category="html">
                         <h3 class="project-card-large__title">Личный сайт</h3>
@@ -69,11 +76,12 @@
         </main>
 
         <footer class="footer">
-            <p class="footer__text">© 2025 Контакты</p>
+            <p class="footer__text">© 2025 Портфолио Гатилова Евгения</p>
         </footer>
     </div>
 
     <script src="../scripts/filter.js"></script>
-    
+
 </body>
+
 </html>
